@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WFOX by DOUBLEU — Be Your Nature</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ── MODIFICA QUI I COLORI SE NECESSARIO ── */
+:root{
+  --navy:#0D1B2A;
+  --cream:#F5F0E8;
+  --gold:#C9A84C;
+  --warm:#FDFAF5;
+  --mid:#8B7355;
+  --fox:#D4742A;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--warm);color:var(--navy);font-family:"DM Sans",sans-serif;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:22px 60px;transition:all .4s}
+nav.s{background:rgba(13,27,42,.96);backdrop-filter:blur(20px);padding:14px 60px}
+.nl{display:flex;align-items:center;gap:14px;text-decoration:none}
+.nl img{height:22px;width:auto;display:block;filter:brightness(0) invert(1)}
+.nl span{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:rgba(245,240,232,.3);padding-left:12px;border-left:1px solid rgba(245,240,232,.12)}
+.nm{display:flex;gap:32px;list-style:none;align-items:center}
+.nm a{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.6);text-decoration:none;transition:color .2s}
+.nm a:hover{color:var(--gold)}
+.nbuy{background:var(--gold)!important;color:var(--navy)!important;padding:10px 24px!important;font-weight:500!important}
+.nbuy:hover{background:var(--cream)!important}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:46% 54%;background:var(--navy)}
+.hl{display:flex;flex-direction:column;justify-content:center;padding:120px 56px 80px 80px;position:relative;z-index:2}
+.hl::after{content:"";position:absolute;right:0;top:15%;bottom:15%;width:1px;background:linear-gradient(to bottom,transparent,rgba(201,168,76,.2),transparent)}
+.hey{font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:36px;display:flex;align-items:center;gap:14px}
+.hey::before{content:"";width:36px;height:1px;background:var(--gold);display:block}
+.hlogo{width:clamp(180px,22vw,280px);height:auto;display:block;margin-bottom:20px;filter:brightness(0) invert(1)}
+.htag{font-family:"Cormorant Garamond",serif;font-size:clamp(20px,2.2vw,28px);font-style:italic;color:rgba(245,240,232,.62);font-weight:300;margin-bottom:36px;line-height:1.25}
+.hdesc{font-size:13.5px;line-height:1.82;color:rgba(245,240,232,.45);max-width:380px;margin-bottom:48px;font-weight:300}
+.hact{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.bg{background:var(--gold);color:var(--navy);padding:15px 36px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;text-decoration:none;border:2px solid var(--gold);transition:all .25s;display:inline-block}
+.bg:hover{background:transparent;color:var(--gold)}
+.gg{color:rgba(245,240,232,.45);font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(245,240,232,.18);padding-bottom:2px;transition:all .2s}
+.gg:hover{color:var(--cream);border-color:var(--cream)}
+.hr{position:relative;overflow:hidden;background:var(--navy)}
+.hr img{width:100%;height:100%;object-fit:cover;object-position:left center;display:block}
+.hr::before{content:"";position:absolute;left:0;top:0;bottom:0;width:120px;background:linear-gradient(to right,var(--navy) 0%,rgba(13,27,42,.6) 60%,transparent 100%);z-index:1;pointer-events:none}
+.hbadge{position:absolute;bottom:72px;left:0;z-index:2;background:var(--gold);padding:11px 18px}
+.hbadge span{display:block;font-family:"Bebas Neue",sans-serif;font-size:11px;letter-spacing:.2em;color:var(--navy);line-height:1.55}
+.hscroll{position:absolute;bottom:32px;right:40px;z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px}
+.hscroll span{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,240,232,.22);writing-mode:vertical-rl}
+.sline{width:1px;height:44px;background:linear-gradient(to bottom,var(--gold),transparent);animation:sp 2s ease-in-out infinite}
+@keyframes sp{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* MARQUEE */
+.mq{background:var(--gold);padding:13px 0;overflow:hidden;white-space:nowrap}
+.mqi{display:inline-block;animation:tk 24s linear infinite}
+.mi{display:inline-block;margin:0 26px;font-family:"Bebas Neue",sans-serif;font-size:13px;letter-spacing:.22em;color:var(--navy)}
+.md{display:inline-block;width:4px;height:4px;background:var(--navy);border-radius:50%;vertical-align:middle;margin:0 8px}
+@keyframes tk{to{transform:translateX(-50%)}}
+
+/* PRODUCTS */
+.prods{background:var(--warm);padding:120px 80px}
+.stl{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:64px}
+.slbl{font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.sttl{font-family:"Bebas Neue",sans-serif;font-size:clamp(52px,7vw,88px);line-height:.9}
+.snote{font-family:"Cormorant Garamond",serif;font-size:15px;font-style:italic;color:var(--mid);font-weight:300;text-align:right;max-width:180px;line-height:1.5}
+.pgrid{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:3px}
+.pc{position:relative;overflow:hidden;background:var(--navy);cursor:pointer}
+.pc img{width:100%;height:100%;object-fit:cover;display:block;min-height:520px;transition:transform .7s ease}
+.pc:hover img{transform:scale(1.05)}
+.pco{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(13,27,42,.95) 65%);padding:80px 26px 26px}
+.ptag{position:absolute;top:16px;right:16px;background:var(--gold);color:var(--navy);font-size:9px;letter-spacing:.25em;text-transform:uppercase;padding:5px 11px;font-weight:500}
+.pn{font-family:"Bebas Neue",sans-serif;font-size:21px;letter-spacing:.08em;color:var(--cream);margin-bottom:4px}
+.pm{font-size:11px;color:rgba(245,240,232,.4);letter-spacing:.06em;margin-bottom:10px}
+.pp{font-family:"Cormorant Garamond",serif;font-size:22px;color:var(--gold)}
+.pcb{display:inline-block;margin-top:14px;background:var(--gold);color:var(--navy);font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:9px 22px;text-decoration:none;font-weight:500;opacity:0;transform:translateY(8px);transition:all .3s .05s}
+.pc:hover .pcb{opacity:1;transform:translateY(0)}
+.pdrop{background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:48px 32px;min-height:520px;border:1px solid rgba(201,168,76,.12)}
+.pdt{font-family:"Bebas Neue",sans-serif;font-size:34px;color:var(--cream);letter-spacing:.05em;text-align:center;line-height:1.1}
+.pdt span{color:var(--gold)}
+.pdd{font-size:12px;color:rgba(245,240,232,.3);text-align:center;line-height:1.7;letter-spacing:.04em}
+.dinput{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(245,240,232,.12);padding:12px 16px;font-size:12px;color:var(--cream);letter-spacing:.05em;outline:none;font-family:"DM Sans",sans-serif}
+.dinput::placeholder{color:rgba(245,240,232,.2)}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1fr 1fr}
+.av{position:relative;overflow:hidden;min-height:640px}
+.av img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .8s ease}
+.av:hover img{transform:scale(1.03)}
+.avlbl{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(13,27,42,.88));padding:60px 36px 28px}
+.avln{font-family:"Bebas Neue",sans-serif;font-size:19px;letter-spacing:.1em;color:var(--cream)}
+.avls{font-size:11px;color:rgba(245,240,232,.45);letter-spacing:.08em}
+.ac{background:var(--navy);padding:96px 80px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.ac::after{content:"W";font-family:"Bebas Neue",sans-serif;font-size:400px;color:rgba(255,255,255,.02);position:absolute;right:-50px;bottom:-70px;line-height:1;pointer-events:none}
+.atag{font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:26px}
+.ah{font-family:"Cormorant Garamond",serif;font-size:clamp(38px,4vw,56px);color:var(--cream);line-height:1.1;font-weight:300;margin-bottom:26px}
+.ah em{color:var(--fox);font-style:italic}
+.ab{font-size:13.5px;line-height:1.85;color:rgba(245,240,232,.52);font-weight:300;max-width:380px;margin-bottom:44px}
+.pills{display:grid;grid-template-columns:1fr 1fr;gap:26px 22px}
+.pl{border-top:1px solid rgba(245,240,232,.09);padding-top:16px}
+.plt{font-family:"Bebas Neue",sans-serif;font-size:15px;letter-spacing:.08em;color:var(--cream);margin-bottom:6px}
+.pld{font-size:12px;line-height:1.6;color:rgba(245,240,232,.38);font-weight:300}
+
+/* GALLERY */
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:3px;background:var(--navy)}
+.gi{position:relative;overflow:hidden}
+.gi img{width:100%;height:100%;object-fit:cover;display:block;min-height:400px;transition:transform .7s ease}
+.gi:hover img{transform:scale(1.04)}
+.gc{position:absolute;bottom:20px;left:20px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.55);background:rgba(13,27,42,.55);padding:5px 12px;backdrop-filter:blur(4px)}
+
+/* STATS */
+.stats{background:var(--navy);display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(245,240,232,.05)}
+.st{padding:50px 44px;border-right:1px solid rgba(245,240,232,.05)}
+.st:last-child{border-right:none}
+.sn{font-family:"Bebas Neue",sans-serif;font-size:52px;color:var(--gold);line-height:1;margin-bottom:8px}
+.sl{font-size:11px;color:rgba(245,240,232,.32);letter-spacing:.12em;text-transform:uppercase;line-height:1.5}
+
+/* CTA */
+.ctab{background:var(--gold);padding:80px;display:flex;align-items:center;justify-content:space-between;gap:40px}
+.ctab h2{font-family:"Bebas Neue",sans-serif;font-size:clamp(44px,5.5vw,70px);color:var(--navy);line-height:.92;margin-bottom:12px}
+.ctab p{font-size:14px;color:rgba(13,27,42,.58);font-weight:300;max-width:340px}
+.bn{background:var(--navy);color:var(--cream);padding:18px 52px;font-size:11px;letter-spacing:.25em;text-transform:uppercase;font-weight:500;text-decoration:none;border:2px solid var(--navy);transition:all .25s;white-space:nowrap;flex-shrink:0;display:inline-block}
+.bn:hover{background:transparent;color:var(--navy)}
+
+/* FOOTER */
+footer{background:#070d14;padding:72px 80px 40px}
+.ft{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:56px}
+.flogo{height:20px;width:auto;display:block;margin-bottom:6px;filter:brightness(0) invert(1)}
+.ftag{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:13px;color:rgba(245,240,232,.22)}
+.fcols{display:flex;gap:52px}
+.fc h4{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.fc ul{list-style:none}
+.fc li{margin-bottom:10px}
+.fc a{font-size:12px;color:rgba(245,240,232,.32);text-decoration:none;transition:color .2s}
+.fc a:hover{color:var(--cream)}
+.fb{border-top:1px solid rgba(245,240,232,.05);padding-top:22px;display:flex;justify-content:space-between}
+.fb span{font-size:10px;color:rgba(245,240,232,.18)}
+.fdot{color:var(--fox)}
+
+/* ANIM */
+.fu{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.fu.on{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  nav{padding:14px 24px}nav.s{padding:12px 24px}
+  .nm{display:none}
+  .hero{grid-template-columns:1fr}
+  .hl{padding:96px 28px 56px;order:1}
+  .hr{height:75vw;max-height:520px;order:2}
+  .prods{padding:80px 20px}
+  .pgrid{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr}
+  .ac{padding:72px 28px}
+  .gal{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .ctab{flex-direction:column;padding:60px 28px}
+  footer{padding:60px 24px 36px}
+  .ft{flex-direction:column;gap:40px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="nl">
+    <img src="img/logo.png" alt="WFOX">
+    <span>by DOUBLEU</span>
+  </a>
+  <ul class="nm">
+    <li><a href="#prods">Collezione</a></li>
+    <li><a href="#about">Il Progetto</a></li>
+    <li><a href="https://www.doubleutennis.com">DOUBLEU</a></li>
+    <!-- MODIFICA: aggiungi altri link nav se necessario -->
+    <li><a href="https://www.doubleutennis.com/eshop-wfox" class="nbuy">Acquista</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hl">
+    <div class="hey">Capsule Limited Edition — SS 2025</div>
+    <img src="img/logo.png" alt="WFOX" class="hlogo">
+    <p class="htag">Be Your Nature</p>
+    <!-- MODIFICA TESTO: descrizione capsule -->
+    <p class="hdesc">Una capsule nata dall'incontro tra tennis club, identità contemporanea e produzione artigianale Made in Italy.<br><br>On court. Off court. Always W.</p>
+    <div class="hact">
+      <!-- MODIFICA URL: link alla pagina prodotto -->
+      <a href="https://www.doubleutennis.com/eshop-wfox" class="bg">Acquista — Disponibilità Limitata</a>
+      <a href="#about" class="gg">Scopri il progetto →</a>
+    </div>
+  </div>
+  <div class="hr">
+    <img src="img/hero.jpg" alt="WFOX — coppia al tennis club">
+    <div class="hbadge"><span>MADE IN ITALY</span><span>ARTIGIANALE</span></div>
+    <div class="hscroll"><div class="sline"></div><span>Scroll</span></div>
+  </div>
+</section>
+
+<div class="mq"><div class="mqi">
+  <span class="mi">ON COURT</span><span class="md"></span><span class="mi">OFF COURT</span><span class="md"></span><span class="mi">ALWAYS W</span><span class="md"></span><span class="mi">MADE IN ITALY</span><span class="md"></span><span class="mi">HERITAGE TENNIS</span><span class="md"></span><span class="mi">BE YOUR NATURE</span><span class="md"></span><span class="mi">WFOX BY DOUBLEU</span><span class="md"></span><span class="mi">CAVA DE' TIRRENI</span><span class="md"></span><span class="mi">ON COURT</span><span class="md"></span><span class="mi">OFF COURT</span><span class="md"></span><span class="mi">ALWAYS W</span><span class="md"></span><span class="mi">MADE IN ITALY</span><span class="md"></span><span class="mi">HERITAGE TENNIS</span><span class="md"></span><span class="mi">BE YOUR NATURE</span><span class="md"></span><span class="mi">WFOX BY DOUBLEU</span><span class="md"></span><span class="mi">CAVA DE' TIRRENI</span><span class="md"></span>
+</div></div>
+
+<section class="prods" id="prods">
+  <div class="stl fu">
+    <div><div class="slbl">La Collezione</div><h2 class="sttl">WFOX COLLECTION</h2></div>
+    <p class="snote">SS 2025 — Pezzi limitati.<br>Nessun riassortimento.</p>
+  </div>
+  <div class="pgrid">
+    <!-- MODIFICA: URL e prezzi prodotti -->
+    <div class="pc fu">
+      <div class="ptag">Bestseller</div>
+      <img src="img/crew.jpg" alt="WFOX Crewneck Navy">
+      <div class="pco">
+        <div class="pn">WFOX Crewneck — Navy</div>
+        <div class="pm">Cotone pesante 380gsm — stampa HD</div>
+        <div class="pp">€ 98</div>
+        <a href="https://www.doubleutennis.com/eshop-wfox" class="pcb">Acquista</a>
+      </div>
+    </div>
+    <div class="pc fu">
+      <div class="ptag">Limited</div>
+      <img src="img/tee.jpg" alt="WFOX Tee White">
+      <div class="pco">
+        <div class="pn">WFOX Tee — White</div>
+        <div class="pm">100% cotone — mascotte stampata</div>
+        <div class="pp">€ 65</div>
+        <a href="https://www.doubleutennis.com/eshop-wfox" class="pcb">Acquista</a>
+      </div>
+    </div>
+    <div class="pdrop fu">
+      <img src="img/logo.png" alt="WFOX" style="width:80px;height:auto;opacity:.18;filter:brightness(0) invert(1)">
+      <div class="pdt">PROSSIMO<br><span>DROP</span></div>
+      <div class="pdd">Entra nella lista.<br>Disponibilità prima del lancio.</div>
+      <!-- MODIFICA: collega questo form a Mailchimp o simile -->
+      <input class="dinput" type="email" placeholder="La tua email">
+      <a href="#" class="bg" style="font-size:10px;padding:11px 28px;width:100%;text-align:center">Notificami</a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="av">
+    <img src="img/wear.jpg" alt="WFOX indossato">
+    <div class="avlbl">
+      <div class="avln">WFOX Crewneck Navy</div>
+      <div class="avls">On court. Off court. Always W.</div>
+    </div>
+  </div>
+  <div class="ac fu">
+    <div class="atag">Il Progetto</div>
+    <h2 class="ah">Una volpe<br>sul <em>campo.</em><br>Sempre.</h2>
+    <!-- MODIFICA TESTO: descrizione progetto -->
+    <p class="ab">WFOX è una capsule di DOUBLEU — brand artigianale Made in Italy con oltre dieci anni nel tennis e padel premium. Non è merchandising. È un'identità: per chi gioca, per chi vive il club, per chi non si accontenta del solito.</p>
+    <div class="pills">
+      <div class="pl"><div class="plt">Heritage Tennis</div><div class="pld">Estetica classica del club — esecuzione contemporanea.</div></div>
+      <div class="pl"><div class="plt">Artigianale IT</div><div class="pld">Prodotto a Cava de' Tirreni. Nessun outsourcing.</div></div>
+      <div class="pl"><div class="plt">Edizione Limitata</div><div class="pld">Zero riassortimento. Il valore non si svaluta.</div></div>
+      <div class="pl"><div class="plt">On + Off Court</div><div class="pld">Dal campo alla città. Identità senza compromessi.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="gal fu">
+  <div class="gi"><img src="img/tee.jpg" alt="WFOX Tee flat lay"><div class="gc">WFOX Tee — White</div></div>
+  <div class="gi"><img src="img/white.jpg" alt="WFOX Crewneck White"><div class="gc">WFOX Crewneck — White Heritage</div></div>
+</div>
+
+<div class="stats fu">
+  <!-- MODIFICA: aggiorna i numeri se cambiano -->
+  <div class="st"><div class="sn">10+</div><div class="sl">Anni di produzione artigianale</div></div>
+  <div class="st"><div class="sn">100%</div><div class="sl">Made in Italy — Cava de' Tirreni</div></div>
+  <div class="st"><div class="sn">3</div><div class="sl">Pezzi capsule — zero riassortimento</div></div>
+  <div class="st"><div class="sn">IT·DE·ES</div><div class="sl">Club clienti in 3 paesi</div></div>
+</div>
+
+<div class="ctab fu" id="cta">
+  <div>
+    <h2>FATTO IN ITALIA.<br>DAVVERO.</h2>
+    <p>Stessa manifattura che veste i club più esigenti d'Europa. Ogni capo WFOX nasce nello stesso atelier DOUBLEU.</p>
+  </div>
+  <a href="https://www.doubleutennis.com/eshop-wfox" class="bn">Acquista Prima che Finisca</a>
+</div>
+
+<footer>
+  <div class="ft">
+    <div>
+      <img src="img/logo.png" alt="WFOX" class="flogo">
+      <div class="ftag">by DOUBLEU — On court. Off court. Always W.</div>
+    </div>
+    <div class="fcols">
+      <div class="fc">
+        <h4>Collezione</h4>
+        <ul>
+          <li><a href="https://www.doubleutennis.com/eshop-wfox">WFOX Capsule</a></li>
+          <li><a href="https://www.doubleutennis.com">DOUBLEU</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h4>Brand</h4>
+        <ul>
+          <!-- MODIFICA: aggiorna link social -->
+          <li><a href="https://www.instagram.com/doubleutennis" target="_blank">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/company/doubleu" target="_blank">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h4>Contatti</h4>
+        <ul>
+          <!-- MODIFICA: aggiorna email contatto -->
+          <li><a href="mailto:info@doubleutennis.com">info@doubleutennis.com</a></li>
+          <li><a href="https://www.doubleutennis.com">doubleutennis.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="fb">
+    <span>© 2025 DOUBLEU — Tutti i diritti riservati</span>
+    <span><span class="fdot">●</span> Prodotto a Cava de' Tirreni, Italia</span>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById("nav");
+window.addEventListener("scroll",()=>nav.classList.toggle("s",window.scrollY>60));
+const obs=new IntersectionObserver((e)=>{e.forEach((en,i)=>{if(en.isIntersecting)setTimeout(()=>en.target.classList.add("on"),i*80)});},{threshold:.1});
+document.querySelectorAll(".fu").forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
