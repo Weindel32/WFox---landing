@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WFOX by DOUBLEU — Be Your Nature</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Google Analytics 4 — sostituisci G-XXXXXXXXXX con il tuo Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
 <style>
 /* ── MODIFICA QUI I COLORI SE NECESSARIO ── */
 :root{
@@ -336,6 +344,18 @@ const nav=document.getElementById("nav");
 window.addEventListener("scroll",()=>nav.classList.toggle("s",window.scrollY>60));
 const obs=new IntersectionObserver((e)=>{e.forEach((en,i)=>{if(en.isIntersecting)setTimeout(()=>en.target.classList.add("on"),i*80)});},{threshold:.1});
 document.querySelectorAll(".fu").forEach(el=>obs.observe(el));
+
+// Tracciamento click acquisto prodotti
+document.querySelectorAll("a.pcb, a.bg, a.bn, a.nbuy").forEach(el=>{
+  el.addEventListener("click",()=>{
+    if(typeof gtag!=="undefined"){
+      gtag("event","click_acquista",{
+        link_text: el.textContent.trim(),
+        link_url: el.href
+      });
+    }
+  });
+});
 </script>
 </body>
 </html>
